@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import AuthorizedInline from '../../auth/AuthorizedInline';
 
 export const Footer = () => {
   return (
@@ -14,17 +15,19 @@ export const Footer = () => {
       </div>
 
       <ul>
-        <li>
-          <Link to="/profile" title="Go to profile">
-            Profile
-          </Link>
-        </li>
+        <AuthorizedInline>
+          <li>
+            <Link to="/profile" title="Go to profile">
+              Profile
+            </Link>
+          </li>
 
-        <li>
-          <Link to="/play" title="Play now">
-            Play
-          </Link>
-        </li>
+          <li>
+            <Link to="/play" title="Play now">
+              Play
+            </Link>
+          </li>
+        </AuthorizedInline>
 
         <li>
           <Link to="/ranks" title="See users">

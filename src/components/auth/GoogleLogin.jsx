@@ -1,7 +1,7 @@
 import { useEffect, useRef } from 'react';
 import { initializeGoogleAuth } from '../../api/auth';
 
-export default function GoogleLogin() {
+export const GoogleLogin = () => {
   const buttonRef = useRef();
 
   useEffect(() => {
@@ -9,7 +9,7 @@ export default function GoogleLogin() {
       const af = async () => {
         await initializeGoogleAuth();
 
-        /*global google*/
+        /* global google */
         google.accounts.id.renderButton(buttonRef.current, {
           theme: 'outline',
         });
@@ -19,5 +19,5 @@ export default function GoogleLogin() {
     }
   }, [buttonRef]);
 
-  return <div ref={buttonRef}>GoogleLogin</div>;
-}
+  return <div ref={buttonRef}></div>;
+};

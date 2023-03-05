@@ -1,6 +1,7 @@
-// functie care primeste payload de user si returneaza
-// {type: '', payload: { } }
+import { client } from './../../../api/users';
 
+// functie care primeste payload de user, si returneaza
+// {type: '', payload: {}}
 // action creator:
 export const setUser = (user) => {
   return {
@@ -9,10 +10,32 @@ export const setUser = (user) => {
   };
 };
 
-// GET ->
-export const readUser = () => {
+export const setUserStats = (stats) => {
+  return {
+    type: 'auth/setUserStats',
+    payload: stats,
+  };
+};
+
+// GET -> /users/12312312421342131
+export const readUser = (userId) => {
   return async () => {
-    // const { data } = await client.get(`/users/${userId}`);
-    // return data;
+    const { data } = await client.get(`/users/${userId}`);
+
+    return data;
+  };
+};
+
+// POST -> /users
+export const createUser = (userId) => {
+  return async (_, getState) => {
+    const { stats } = getState();
+
+    const { data } = await client.post('/users', {
+      id: userId,
+      stats,
+    });
+
+    return data;
   };
 };

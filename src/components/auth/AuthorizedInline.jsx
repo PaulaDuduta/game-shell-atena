@@ -1,6 +1,6 @@
 import { useSelector } from 'react-redux';
 
-export default function AuthorizedInline({ children }) {
+export const AuthorizeInline = ({ children }) => {
   const { authenticated } = useSelector(({ auth }) => {
     const { authenticated } = auth;
 
@@ -11,5 +11,5 @@ export default function AuthorizedInline({ children }) {
     return <></>;
   }
 
-  return <div>{children}</div>;
-}
+  return <>{children}</>;
+};

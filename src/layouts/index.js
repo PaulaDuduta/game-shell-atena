@@ -1,2 +1,3 @@
 export * from './Layout';
-export * from './FullScreenLayout';
+export * from './FullscreenLayout';
+export * from './AuthorizedLayout';

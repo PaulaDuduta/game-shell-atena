@@ -1,10 +1,10 @@
 import { Link } from 'react-router-dom';
-import { FullScreenLayout } from '../layouts';
+import { FullscreenLayout } from '../layouts';
 
 export const FourOhFour = () => {
   return (
-    <FullScreenLayout>
-      <div className="bg-teal-500 w-screen h-screen flex items-center justify-center">
+    <FullscreenLayout>
+      <div className="bg-pink-400 w-screen h-screen flex items-center justify-center">
         <div className="text-center text-white">
           <span className="text-7xl animate-pulse block">404</span>
 
@@ -13,6 +13,6 @@ export const FourOhFour = () => {
           </Link>
         </div>
       </div>
-    </FullScreenLayout>
+    </FullscreenLayout>
   );
 };

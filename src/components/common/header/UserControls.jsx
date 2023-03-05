@@ -2,7 +2,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { Button } from '../ui';
 import { RiUser5Fill } from 'react-icons/ri';
-import GoogleLogin from '../../auth/GoogleLogin';
+import { GoogleLogin } from '../../auth';
 
 export const UserControls = () => {
   const authenticated = useSelector(({ auth }) => {

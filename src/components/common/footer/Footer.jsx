@@ -1,13 +1,12 @@
-import React from 'react';
 import { Link } from 'react-router-dom';
-import AuthorizedInline from '../../auth/AuthorizedInline';
+import { AuthorizeInline } from '../../auth';
 
 export const Footer = () => {
   return (
     <div className="container mx-auto px-4 flex justify-between">
       <div>
         <h1>
-          <Link to="/" title="Home">
+          <Link to="/" title="home">
             Game Shell
           </Link>
         </h1>
@@ -15,7 +14,7 @@ export const Footer = () => {
       </div>
 
       <ul>
-        <AuthorizedInline>
+        <AuthorizeInline>
           <li>
             <Link to="/profile" title="Go to profile">
               Profile
@@ -27,7 +26,7 @@ export const Footer = () => {
               Play
             </Link>
           </li>
-        </AuthorizedInline>
+        </AuthorizeInline>
 
         <li>
           <Link to="/ranks" title="See users">

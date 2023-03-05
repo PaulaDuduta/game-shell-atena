@@ -1,10 +1,14 @@
 import jwtDecode from 'jwt-decode';
-import { setUser } from '../store/actions/auth';
+import {
+  createUser,
+  readUser,
+  setUser,
+  setUserStats,
+} from '../store/actions/auth';
 import store from './../store';
-
 let initialized = false;
-
 const clientId = process.env.REACT_APP_GOOGLE_CLIENT_ID;
+
 export const initializeGoogleAuth = async () => {
   return new Promise((resolve) => {
     if (initialized) {
@@ -17,7 +21,7 @@ export const initializeGoogleAuth = async () => {
         client_id: clientId,
         callback: (response) => {
           const {
-            give_name: firstName,
+            given_name: firstName,
             family_name: lastName,
             email,
             picture: avatar,
@@ -35,8 +39,18 @@ export const initializeGoogleAuth = async () => {
               name,
             }),
           );
-        },
 
+          store
+            .dispatch(readUser(id))
+            .then(({ stats }) => {
+              // daca user exista - incarcam informatia in stare
+              store.dispatch(setUserStats(stats));
+            })
+            .catch(() => {
+              // daca user nu exista - creeam
+              store.dispatch(createUser(id));
+            });
+        },
         scope: 'email profile',
       });
 

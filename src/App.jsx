@@ -1,9 +1,5 @@
-// import { useEffect, useState } from 'react';
-import { FourOhFour, Home, Profile } from './pages';
+import { FourOhFour, Home, Play, Profile, Rank, Ranks } from './pages';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
-import PlayPage from './pages/PlayPage';
-import Rank from './pages/Rank';
-import Ranks from './pages/Ranks';
 
 const router = createBrowserRouter([
   {
@@ -17,7 +13,7 @@ const router = createBrowserRouter([
   },
   {
     path: '/play',
-    element: <PlayPage></PlayPage>,
+    element: <Play></Play>,
   },
   {
     path: '/ranks',
@@ -30,18 +26,6 @@ const router = createBrowserRouter([
 ]);
 
 const App = () => {
-  // const [users, setUsers] = useState();
-
-  // useEffect(() => {
-  //   fetch('http://localhost:8080/users')
-  //     .then((response) => {
-  //       return response.json();
-  //     })
-  //     .then((data) => {
-  //       setUsers(data);
-  //     });
-  // }, [setUsers]);
-
   return <RouterProvider router={router}></RouterProvider>;
 };
 
